@@ -1,14 +1,18 @@
 package com.riotour2.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -26,22 +30,23 @@ public class ViagemModel {
     @NotBlank
     private String titulo;
 
-    @NotBlank
+    @NotNull
     @Digits(integer=9, fraction=2)
     private BigDecimal preco;
 
     @NotBlank
     private String descricao;
 
-    @NotBlank
+    @NotNull
     private int tamMaxGrupo;
 
     @NotBlank
     private String duracaoExpedicao;
 
-    @NotBlank
+    @NotNull
     @Future
-    private Date dataChegada;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataChegada;
 
     @ManyToOne
     @JsonIgnoreProperties("viagem")
@@ -99,10 +104,12 @@ public class ViagemModel {
     public void setDuracaoExpedicao(String duracaoExpedicao) {
         this.duracaoExpedicao = duracaoExpedicao;
     }
-    public Date getDataChegada() {
+
+    public LocalDate getDataChegada() {
         return dataChegada;
     }
-    public void setDataChegada(Date dataChegada) {
+
+    public void setDataChegada(LocalDate dataChegada) {
         this.dataChegada = dataChegada;
     }
 
