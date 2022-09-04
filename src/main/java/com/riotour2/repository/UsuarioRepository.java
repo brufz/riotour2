@@ -6,9 +6,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel,Long> {
-    public List<UsuarioModel> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
+    public Optional<UsuarioModel> findByNomeUsuario(@Param("nomeUsuario") String nomeUsuario);
 }
 
