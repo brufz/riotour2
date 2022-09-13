@@ -41,8 +41,18 @@ public class UsuarioModel {
         //@ContainDigit
         //@ContainUppercase
         private String senha;
+        
+//        private List<PermissoesModel> permissoes;
+//
+//        public List<PermissoesModel> getPermissoes() {
+//			return permissoes;
+//		}
+//
+//		public void setPermissoes(List<PermissoesModel> permissoes) {
+//			this.permissoes = permissoes;
+//		}
 
-        @ManyToMany
+		@ManyToMany
         @JsonIgnoreProperties("usuario")
         private List<ViagemModel> viagem;
 

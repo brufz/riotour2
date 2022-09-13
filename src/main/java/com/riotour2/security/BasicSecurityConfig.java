@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserDetailsServiceImpl userDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -25,8 +25,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService);
 
         auth.inMemoryAuthentication()
-                .withUser("root")
-                .password(passwordEncoder().encode("root"))
+                .withUser("nandaSnows")
+                .password(passwordEncoder().encode("@@Testando123"))
                 .authorities("ROLE_USER");
 
     }

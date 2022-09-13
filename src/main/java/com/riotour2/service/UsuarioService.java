@@ -60,7 +60,7 @@ public class UsuarioService {
 
             if (compararSenhas(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
 
-                usuarioLogin.get().setNomeUsuario(usuario.get().getNome());
+                usuarioLogin.get().setNomeUsuario(usuario.get().getNomeUsuario());
                 usuarioLogin.get().setToken(gerarBasicToken(usuarioLogin.get().getNomeUsuario(), usuarioLogin.get().getSenha()));
                 usuarioLogin.get().setSenha(usuario.get().getSenha());
 
